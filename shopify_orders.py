@@ -14,12 +14,12 @@ response = requests.get(url).json()
 # line_items -> quantity, sku, title, variant_title
 # shipping_address -> country
 
-def filter_data(o):
+def filter_data(order):
     obj = {
-        "created_at": o["created_at"],
-        "order_number": o["order_number"],
-        "fulfillment_status": o["fulfillment_status"],
-        "order_country": o["shipping_address"]["country"],
+        "created_at": order["created_at"],
+        "order_number": order["order_number"],
+        "fulfillment_status": order["fulfillment_status"],
+        "order_country": order["shipping_address"]["country"],
         "items": list(map(
             lambda i: {
                 "quantity": i["quantity"],
@@ -28,8 +28,7 @@ def filter_data(o):
                 "fulfillment_status": i["fulfillment_status"],
                 "variant_title": i["variant_title"],
             }
-            , o["line_items"]))
-
+            , order["line_items"]))
 
     }
     return obj
