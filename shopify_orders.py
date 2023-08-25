@@ -2,10 +2,12 @@ import requests
 import json
 
 
-num_orders = "10"
+store_name = " "
 api_key = " "
+num_orders = " "
+status = " "
 
-url = f"https://{api_key}@luxonis.myshopify.com/admin/api/2021-10/orders.json?limit={num_orders}&fulfillment_status=any"
+url = f"https://{api_key}@{store_name}.myshopify.com/admin/api/2021-10/orders.json?limit={num_orders}&fulfillment_status={status}"
 
 response = requests.get(url).json()
 
