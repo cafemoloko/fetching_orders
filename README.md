@@ -1,4 +1,4 @@
 # porta
 
-App to manage and sync order fulfillment among Shopify, Katana, Amazon and EasyShip
+Blueprints for fetching orders from Shopify, Easyship and Katana
 
